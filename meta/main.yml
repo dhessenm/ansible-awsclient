@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Dirk Hessenmüller
+  description: Installs aws client and create aws config file.
+  company: DH
+
+  license: MIT
+
+  min_ansible_version: 2.0
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - DBS
+    - installer
+    - aws
+    - awscli
+
+dependencies:
+#  - { role: dbs_proxyconf }
+- src: https://github.com/dhessenm/dbs_proxyconf
+  name: dbs_proxyconf
+  version: master
+

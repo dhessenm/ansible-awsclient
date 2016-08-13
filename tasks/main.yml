@@ -1,0 +1,14 @@
+---
+
+- include: check.yml
+
+- include: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags: 
+    - docker
+
+- include: redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags: 
+    - docker
+
