@@ -1,13 +1,10 @@
-Role Name
+Ansible role: dbs_awsclient
 =========
 
-Role installs aws client and create aws config file
+Role installs aws client and creates aws config file
 
 Requirements
 ------------
-
-Role requires ansible roles:
-* dbs_proxyconf
 
 Role Variables
 --------------
