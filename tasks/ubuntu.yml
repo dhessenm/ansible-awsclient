@@ -10,29 +10,29 @@
 - name: Python boto is present
   pip: name=boto
 
-- name: Check if directory {{ aws_cli_user_home }} is present
-  stat: path={{ aws_cli_user_home }}
-  register: p
+# - name: Check if directory {{ aws_cli_user_home }} is present
+  # stat: path={{ aws_cli_user_home }}
+  # register: p
 
-- debug: msg="Warning -> Directory {{ aws_cli_user_home }} doesn't exists"
-  when: not p.stat.isdir is defined
+# - debug: msg="Warning -> Directory {{ aws_cli_user_home }} doesn't exists"
+  # when: not p.stat.isdir is defined
   # when: p.stat.isdir is defined and not p.stat.isdir
 
-- name: Create the AWS config directory
-  file:
-    path={{ aws_cli_user_home }}/.aws
-    state=directory
-    owner={{ aws_cli_user }}
-    group={{ aws_cli_user }}
-    mode=0755
-  when: p.stat.isdir is defined and p.stat.isdir
+# - name: Create the AWS config directory
+#   file:
+#     path={{ aws_cli_user_home }}/.aws
+#     state=directory
+#     owner={{ aws_cli_user }}
+#     group={{ aws_cli_user }}
+#     mode=0755
+#   when: p.stat.isdir is defined and p.stat.isdir
 
-- name: Copy AWS CLI config
-  template:
-    src=aws_cli_config.j2
-    dest={{ aws_cli_user_home }}/.aws/config
-    owner={{ aws_cli_user }}
-    group={{ aws_cli_user }}
-    mode=0600
-  when: p.stat.isdir is defined and p.stat.isdir
+# - name: Copy AWS CLI config
+#   template:
+#     src=aws_cli_config.j2
+#     dest={{ aws_cli_user_home }}/.aws/config
+#     owner={{ aws_cli_user }}
+#     group={{ aws_cli_user }}
+#     mode=0600
+#   when: p.stat.isdir is defined and p.stat.isdir
 
