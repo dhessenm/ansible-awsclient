@@ -1,4 +1,4 @@
-Ansible role: dbs_awsclient
+Ansible role: awsclient
 =========
 
 Role installs aws client and creates aws config file
@@ -22,14 +22,14 @@ role specific:
 Dependencies
 ------------
 
-* dbs_proxyconf
+* proxyconf
 
 Example Playbook
 ----------------
 
     - hosts: servers
       roles:
-         - { role: dbs_awsclient }
+         - { role: awsclient }
 
 License
 -------
