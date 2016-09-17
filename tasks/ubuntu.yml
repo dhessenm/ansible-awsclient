@@ -14,12 +14,11 @@
   stat: path={{ aws_cli_user_home }}
   register: p
 
-#- debug: msg="Warning -> Directory {{ aws_cli_user_home }} doesn't exists"
-  #when: not p.stat.isdir is defined
-  #when: p.stat.isdir is defined and not p.stat.isdir
+- debug: msg="Warning -> Directory {{ aws_cli_user_home }} doesn't exist" 
+  when: not p.stat.isdir is defined
 
-- fail: msg="Error -> Directory {{ aws_cli_user_home }} doesn't exists"
-  when: not p.stat.isdir
+# - fail: msg="Error -> Directory {{ aws_cli_user_home }} doesn't exists"
+  # when: not p.stat.isdir is defined
 
 - name: Create the AWS config directory
   file:
@@ -32,10 +31,14 @@
 
 - name: Copy AWS CLI config
   template:
-    src=aws_cli_config.j2
-    dest={{ aws_cli_user_home }}/.aws/config
+    src={{ item }}
+    dest={{ aws_cli_user_home }}/.aws/{{ item }}
     owner={{ aws_cli_user }}
     group={{ aws_cli_user }}
     mode=0600
+  with_items:
+    - config
+    - credentials
+
   when: p.stat.isdir is defined and p.stat.isdir
 
