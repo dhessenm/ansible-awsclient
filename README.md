@@ -1,7 +1,7 @@
 Ansible role: awsclient
 =========
 
-Role installs aws client and creates aws config file
+Role installs AWS client and creates AWS config file
 
 Requirements
 ------------
@@ -22,8 +22,6 @@ role specific:
 Dependencies
 ------------
 
-* proxyconf
-
 Example Playbook
 ----------------
 
@@ -38,5 +36,6 @@ BSD
 
 Author Information
 ------------------
-it's me
+Dirk Hessenmüller
+
 

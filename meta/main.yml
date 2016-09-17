@@ -1,7 +1,6 @@
 galaxy_info:
   author: Dirk Hessenmüller
-  description: Installs aws client and create aws config file.
-  company: DH
+  description: Installs AWS client and creates AWS config file.
 
   license: BSD
 
@@ -10,16 +9,9 @@ galaxy_info:
   platforms:
   - name: Ubuntu
     versions:
-    - all
+    - trusty
   galaxy_tags:
-    - DBS
     - installer
     - aws
     - awscli
-
-dependencies:
-#  - { role: dbs_proxyconf }
-#- src: https://github.com/dhessenm/dbs_proxyconf
-#  name: dbs_proxyconf
-#  version: master
 
