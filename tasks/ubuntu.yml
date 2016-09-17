@@ -19,8 +19,7 @@
   #when: p.stat.isdir is defined and not p.stat.isdir
 
 - fail: msg="Error -> Directory {{ aws_cli_user_home }} doesn't exists"
-  when: not p.stat.isdir is defined
-  when: p.stat.isdir is defined and not p.stat.isdir
+  when: not p.stat.isdir
 
 - name: Create the AWS config directory
   file:
